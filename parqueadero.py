@@ -25,12 +25,10 @@ else:
 
 horas_cobrables = minutos_permanencia // 60
 
-if minutos_permanencia % 60 != 0:
-    horas_cobrables += 1
-
-if horas_cobrables == 0:
-    horas_cobrables = 1
-
+if minutos_permanencia <= 0:
+    horas_cobrables = 0
+else:
+    horas_cobrables = (minutos_permanencia + 59) // 60
 
 
 tarifa = horas_cobrables * tarifa_hora
