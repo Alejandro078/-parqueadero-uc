@@ -44,11 +44,21 @@ else:
     tarifa_final = tarifa
 
 
+descuento = 0
+
+if hora_entrada >= 20 or hora_entrada < 6:
+    descuento = tarifa * 0.20
+    tarifa_final = tarifa - descuento
+else:
+    tarifa_final = tarifa
+
+
 print("\n=== DATOS DEL VEHÍCULO ===")
 print(f"Placa: {placa}")
 print(f"Tipo de usuario: {tipo_usuario}")
 print(f"Hora de entrada: {hora_entrada}")
 print(f"Minutos de permanencia: {minutos_permanencia}")
 print(f"Horas cobrables: {horas_cobrables}")
+print(f"Descuento nocturno: ${descuento:.0f}")
 print(f"Tarifa por hora: ${tarifa_hora}")
 print(f"TOTAL A PAGAR: ${tarifa_final:.0f}")
